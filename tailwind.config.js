@@ -11,6 +11,9 @@ module.exports = {
         iphone: '375px',
         fh: '1080px',
       },
+      translate: {
+        '-1/2': '-50%',
+      },
     },
   },
   variants: {

@@ -20,16 +20,27 @@ const Home: NextPage = () => {
         </div>
         <br />
         <div className="flex flex-col w-full h-full justify-items-stretch">
-          <MainCard size="big" src="/images/characters.png" alt="characters" />
+          <MainCard
+            size="big"
+            src="/images/characters.png"
+            alt="characters"
+            title="Characters"
+          />
           <br />
           <div className="flex w-full">
             <MainCard
               src="/images/location1.png"
               alt="locations"
               size="large"
+              title="Locations"
             />
             <div className="w-8" />
-            <MainCard src="/images/episode.png" alt="episodes" size="large" />
+            <MainCard
+              src="/images/episode.png"
+              alt="episodes"
+              size="large"
+              title="Episodes"
+            />
           </div>
         </div>
       </div>
