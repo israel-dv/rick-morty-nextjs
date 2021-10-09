@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
 
 import Layout from 'components/Layout'
 import MainCard from 'components/MainCard'
+import ROUTES from 'utils/constants/routes'
 
 const TITLE = 'Rick and Morty'
 const BY = 'by: Israel Moreno'
@@ -23,23 +25,26 @@ const Home: NextPage = () => {
           <MainCard
             size="big"
             src="/images/characters.png"
-            alt="characters"
-            title="Characters"
+            alt={ROUTES.characters.name}
+            title={ROUTES.characters.label}
+            path={ROUTES.characters.path}
           />
           <br />
           <div className="flex w-full">
             <MainCard
               src="/images/location1.png"
-              alt="locations"
               size="large"
-              title="Locations"
+              alt={ROUTES.locations.name}
+              title={ROUTES.locations.label}
+              path={ROUTES.locations.path}
             />
             <div className="w-8" />
             <MainCard
               src="/images/episode.png"
-              alt="episodes"
               size="large"
-              title="Episodes"
+              alt={ROUTES.episodes.name}
+              title={ROUTES.episodes.label}
+              path={ROUTES.episodes.path}
             />
           </div>
         </div>
