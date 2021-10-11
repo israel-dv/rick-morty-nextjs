@@ -15,6 +15,7 @@ export const characterById = (id: any) => gql`
         dimension
       }
       episode {
+        id
         name
         episode
       }

@@ -2,6 +2,7 @@
 import { NextPage } from 'next'
 import { useQuery } from '@apollo/client'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 
 import Layout from 'components/Layout'
 import CardEpisode from 'components/CardEpisode'
@@ -32,6 +33,7 @@ const Character: NextPage = () => {
     <Layout>
       <div className="flex flex-col w-full h-full p-10">
         {loading ? (
+          // This only renders elements to show that page is loading
           <>
             <div className="animate-pulse flex w-full iphone:flex-col iphone:items-center fh:flex-row">
               <img
@@ -79,7 +81,11 @@ const Character: NextPage = () => {
               <span className="text-white text-3xl font-bold">Episodes</span>
               <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
                 {character.episode?.map((episode) => (
-                  <CardEpisode episode={episode} key={episode.id} />
+                  <Link key={episode.id} href={`/episodes/${episode.id}`}>
+                    <a>
+                      <CardEpisode episode={episode} />
+                    </a>
+                  </Link>
                 ))}
               </div>
             </div>

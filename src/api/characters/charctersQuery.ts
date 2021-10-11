@@ -10,17 +10,10 @@ export const charactersQuery = (page: number) => gql`
       results {
         id
         name
-        status
         image
-        gender
-        type
         origin {
           name
           dimension
-        }
-        episode {
-          name
-          episode
         }
       }
     }
