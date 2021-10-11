@@ -9,7 +9,7 @@ export interface CharactersProps {
   id?: string
   name?: string
   status?: string
-  image?: string
+  image: string
   gender?: string
   origin?: Origin
   episode?: Array<EpisodeProps>

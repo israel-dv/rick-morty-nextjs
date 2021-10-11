@@ -9,6 +9,8 @@ import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
 import useSessionStorage from 'utils/hooks/useSessionStorage'
+import CharacterCard from 'components/CharacterCard'
+import CardShimmers from 'components/CardShimmers'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
 
@@ -81,20 +83,16 @@ const Characters: NextPage = () => {
             onClickNext={increment}
           />
         </div>
-        <div>
-          {loading ? (
-            <div>Cargando</div>
-          ) : (
-            <ul>
-              {characters.results.map((character: CharactersProps) => (
-                <li key={`${character.id}-${character.name}`}>
-                  <Link href={`/characters/${character.id}`}>
-                    <a>{character.name}</a>
-                  </Link>
-                </li>
+        <div className="grid grid-cols-4 gap-4 w-full h-full mt-4">
+          {loading
+            ? Array.from({ length: 20 }, () => <CardShimmers />)
+            : characters.results.map((character) => (
+                <Link href={`/characters/${character.id}`} key={character.id}>
+                  <a>
+                    <CharacterCard character={character} />
+                  </a>
+                </Link>
               ))}
-            </ul>
-          )}
         </div>
       </div>
     </Layout>
