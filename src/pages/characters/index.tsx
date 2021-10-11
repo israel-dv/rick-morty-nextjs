@@ -83,11 +83,13 @@ const Characters: NextPage = () => {
             onClickNext={increment}
           />
         </div>
-        <div className="grid grid-cols-4 gap-4 w-full h-full mt-4">
+        <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
           {loading
-            ? Array.from({ length: 20 }, () => <CardShimmers />)
+            ? Array.from({ length: 20 }, (_, index) => (
+                <CardShimmers key={index} />
+              ))
             : characters.results.map((character) => (
-                <Link href={`/characters/${character.id}`} key={character.id}>
+                <Link href={`/characters/${character.name}`} key={character.id}>
                   <a>
                     <CharacterCard character={character} />
                   </a>

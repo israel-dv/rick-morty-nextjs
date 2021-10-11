@@ -10,7 +10,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   return (
     <div
       key={character.id}
-      className="flex h-28 border-2 border-gray-700 rounded-lg items-center px-4 bg-gray-800 cursor-pointer shadow-lg hover:shadow-2xl hover:border-gray-300"
+      className="flex h-28 border-2 border-gray-700 rounded-lg items-center px-4 bg-gray-800 cursor-pointer shadow-lg hover:shadow-2xl hover:border-gray-300 my-1"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

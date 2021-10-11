@@ -1,5 +1,6 @@
-import NavBar from 'components/NavBar'
 import Head from 'next/head'
+
+import Header from 'components/Header'
 
 const SITE_TITLE = 'Rick & Morty NextJS IM'
 
@@ -13,7 +14,7 @@ const Layout: React.FC = ({ children }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <title>{SITE_TITLE}</title>
       </Head>
-      <NavBar />
+      <Header />
       <div className="w-full h-full pt-28 pb-8 fh:px-48 iphone:px-6 overflow-auto">
         {children}
       </div>
