@@ -8,7 +8,7 @@ import Layout from 'components/Layout'
 import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
-import useLocalStorage from 'utils/hooks/useLocalStorage'
+import useSessionStorage from 'utils/hooks/useLocalStorage'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
 
@@ -37,7 +37,7 @@ const Characters: NextPage = () => {
     }),
   )
 
-  const { value: page, setLocalStorage } = useLocalStorage({
+  const { value: page, setLocalStorage } = useSessionStorage({
     key: 'page',
     initialValue: INIT_PAGE,
   })
