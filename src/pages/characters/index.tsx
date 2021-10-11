@@ -8,7 +8,7 @@ import Layout from 'components/Layout'
 import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
-import useSessionStorage from 'utils/hooks/useLocalStorage'
+import useSessionStorage from 'utils/hooks/useSessionStorage'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
 
