@@ -89,7 +89,7 @@ const Characters: NextPage = () => {
                 <CardShimmers key={index} />
               ))
             : characters.results.map((character) => (
-                <Link href={`/characters/${character.name}`} key={character.id}>
+                <Link href={`/characters/${character.id}`} key={character.id}>
                   <a>
                     <CharacterCard character={character} />
                   </a>
