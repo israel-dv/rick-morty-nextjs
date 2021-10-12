@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Dropdown from 'components/Dropdown'
-import React from 'react'
+import FilterPages from 'components/FilterPages'
+import ROUTES from 'utils/constants/routes'
+
+const PAGES = [
+  ROUTES.characters.label,
+  ROUTES.episodes.label,
+  ROUTES.locations.label,
+]
 
 const Header: React.FC = () => {
   return (
@@ -20,7 +26,7 @@ const Header: React.FC = () => {
           </a>
         </Link>
         <div className="flex">
-          <Dropdown />
+          <FilterPages options={PAGES} />
           <input className="ml-2 bg-blue-1000 opacity-75 h-8 focus:outline-none px-3 rounded-md text-white text-xs focus:border-indigo-50" />
         </div>
       </div>

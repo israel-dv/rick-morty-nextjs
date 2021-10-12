@@ -1,9 +1,13 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 
-const OPTIONS: Array<string> = ['Characters', 'Episodes', 'Locations']
+interface FilterPagesProps {
+  options: Array<string>
+}
 
-const Dropdown: React.FC = () => {
+const FilterPages: React.FC<FilterPagesProps> = ({
+  options,
+}: FilterPagesProps) => {
   const dropDownRef: any = useRef(undefined)
 
   const [isActive, setActive] = useState(() => false)
@@ -36,7 +40,7 @@ const Dropdown: React.FC = () => {
           isActive ? 'block' : 'hidden'
         }`}
       >
-        {OPTIONS.map((title) => (
+        {options.map((title) => (
           <Link key={title} href={`/${title.toLocaleLowerCase()}`}>
             <a
               className="flex items-center justify-center w-full h-8 text-xs"
@@ -51,4 +55,4 @@ const Dropdown: React.FC = () => {
   )
 }
 
-export default Dropdown
+export default FilterPages
