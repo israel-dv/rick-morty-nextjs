@@ -10,9 +10,13 @@ module.exports = {
       screens: {
         iphone: '375px',
         fh: '1080px',
+        hd: '1366px',
       },
       translate: {
         '-1/2': '-50%',
+      },
+      minHeight: {
+        24: '6rem',
       },
     },
   },

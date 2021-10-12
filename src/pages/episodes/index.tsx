@@ -63,13 +63,11 @@ const Episodes: NextPage = () => {
 
   return (
     <Layout>
-      <HeadTitle title={ROUTES.characters.label} />
+      <HeadTitle title={ROUTES.episodes.label} />
       <div className="flex flex-col w-full h-full">
         <div className="flex w-full justify-between items-center">
           <div className="flex flex-col">
-            <span className="text-3xl text-white">
-              {ROUTES.characters.label}
-            </span>
+            <span className="text-3xl text-white">{ROUTES.episodes.label}</span>
             <span className="text-sm text-white">
               {loading ? 'Loading' : `Page ${page} of ${episodes?.info?.pages}`}
             </span>
@@ -81,7 +79,7 @@ const Episodes: NextPage = () => {
             onClickNext={increment}
           />
         </div>
-        <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
+        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
           {loading
             ? Array.from({ length: 20 }, (_, index) => (
                 <CardShimmers key={index} type="episode" />

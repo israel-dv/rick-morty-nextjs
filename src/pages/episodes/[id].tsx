@@ -40,8 +40,9 @@ const EpisodeId = () => {
               <div className="h-5 w-48 bg-gray-300 m-1 rounded-lg"></div>
             </div>
             <hr className="my-3" />
-            <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
-              {Array.from({ length: 5 }, (_, index) => (
+            <div className="h-6 w-40 rounded-lg bg-gray-300"></div>
+            <div className="grid fh:grid-cols-4 fh:gap-4 w-full min-h-24 mt-4 2xl:grid-cols-2 2xl:gap-2">
+              {Array.from({ length: 4 }, (_, index) => (
                 <CardShimmers type="character" />
               ))}
             </div>
@@ -58,7 +59,7 @@ const EpisodeId = () => {
             <hr className="my-3" />
             <Link href={`/characters`}>
               <a>
-                <span className="text-xl font-bold text-white hover:shadow-2xl">
+                <span className="text-xl font-bold text-white hover:shadow-2x hover:text-green-500 hover:underline">
                   Characters
                 </span>
               </a>

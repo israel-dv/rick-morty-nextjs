@@ -83,7 +83,7 @@ const Characters: NextPage = () => {
             onClickNext={increment}
           />
         </div>
-        <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
+        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
           {loading
             ? Array.from({ length: 20 }, (_, index) => (
                 <CardShimmers key={index} />
