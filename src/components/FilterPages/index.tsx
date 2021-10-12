@@ -3,15 +3,19 @@ import Link from 'next/link'
 
 interface FilterPagesProps {
   options: Array<string>
+  setTitle(title: any): void
+  title: string
 }
 
 const FilterPages: React.FC<FilterPagesProps> = ({
   options,
+  title,
+  setTitle,
 }: FilterPagesProps) => {
   const dropDownRef: any = useRef(undefined)
 
   const [isActive, setActive] = useState(() => false)
-  const [selected, setSelected] = useState((): string => 'Filter')
+  const [selected, setSelected] = useState()
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick)
@@ -33,7 +37,7 @@ const FilterPages: React.FC<FilterPagesProps> = ({
         }`}
         onClick={() => setActive(!isActive)}
       >
-        {selected}
+        {title}
       </button>
       <div
         className={`absolute bg-gray-200 origin-top mt-1 w-full rounded-lg border-1 shadow-2xl px-3 py-4 ${
@@ -44,7 +48,7 @@ const FilterPages: React.FC<FilterPagesProps> = ({
           <Link key={title} href={`/${title.toLocaleLowerCase()}`}>
             <a
               className="flex items-center justify-center w-full h-8 text-xs"
-              onClick={() => setSelected(title)}
+              onClick={() => setTitle(title)}
             >
               {title}
             </a>

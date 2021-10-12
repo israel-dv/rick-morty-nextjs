@@ -10,7 +10,7 @@ const BY = 'by: Israel Moreno'
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="flex flex-col w-full h-full items-center">
+      <div className="flex flex-col w-full h-full items-center xl:px-52 md:px-12">
         <div className="flex flex-col w-full items-center justify-items-center">
           <span className="text-white fh:text-6xl iphone:text-3xl">
             {TITLE}
@@ -20,33 +20,29 @@ const Home: NextPage = () => {
           </span>
         </div>
         <br />
-        <div className="flex flex-col w-full h-full justify-items-stretch">
-          <MainCard
-            size="big"
-            src="/images/characters.png"
-            alt={ROUTES.characters.name}
-            title={ROUTES.characters.label}
-            path={ROUTES.characters.path}
-          />
-          <br />
-          <div className="flex w-full">
-            <MainCard
-              src="/images/location1.png"
-              size="large"
-              alt={ROUTES.locations.name}
-              title={ROUTES.locations.label}
-              path={ROUTES.locations.path}
-            />
-            <div className="w-8" />
-            <MainCard
-              src="/images/episode.png"
-              size="large"
-              alt={ROUTES.episodes.name}
-              title={ROUTES.episodes.label}
-              path={ROUTES.episodes.path}
-            />
-          </div>
-        </div>
+        <MainCard
+          size="big"
+          src="/images/characters.png"
+          alt={ROUTES.characters.name}
+          title={ROUTES.characters.label}
+          path={ROUTES.characters.path}
+        />
+        <br />
+        <MainCard
+          src="/images/location1.png"
+          size="large"
+          alt={ROUTES.locations.name}
+          title={ROUTES.locations.label}
+          path={ROUTES.locations.path}
+        />
+        <br />
+        <MainCard
+          src="/images/episode.png"
+          size="large"
+          alt={ROUTES.episodes.name}
+          title={ROUTES.episodes.label}
+          path={ROUTES.episodes.path}
+        />
       </div>
     </Layout>
   )
