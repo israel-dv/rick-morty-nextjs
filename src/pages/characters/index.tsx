@@ -9,8 +9,8 @@ import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
 import useSessionStorage from 'utils/hooks/useSessionStorage'
-import CharacterCard from 'components/CharacterCard'
-import CardShimmers from 'components/CardShimmers'
+import CardCharacter from 'components/CardCharacter'
+import CardShimmers from 'components/CardShimmer'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
 
@@ -91,7 +91,7 @@ const Characters: NextPage = () => {
             : characters.results.map((character) => (
                 <Link href={`/characters/${character.id}`} key={character.id}>
                   <a>
-                    <CharacterCard character={character} />
+                    <CardCharacter character={character} />
                   </a>
                 </Link>
               ))}

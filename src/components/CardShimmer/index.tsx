@@ -11,7 +11,7 @@ const CardShimmers: React.FC<CardShimmersProps> = ({
       {type === 'character' && (
         <img
           src="images/loading.jpeg"
-          alt="loading"
+          alt=""
           className="rounded-full w-24 h-24 bg-gray-200 border-2 border-white cursor-pointer"
         />
       )}

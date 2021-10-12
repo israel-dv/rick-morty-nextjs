@@ -10,7 +10,7 @@ import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
 import useSessionStorage from 'utils/hooks/useSessionStorage'
 import CardEpisode from 'components/CardEpisode'
-import CardShimmers from 'components/CardShimmers'
+import CardShimmers from 'components/CardShimmer'
 import { episodesQuery } from 'api/episodes/espisodesQuery'
 import { EpisodeProps } from 'utils/interfaces/episodes'
 

@@ -1,12 +1,12 @@
 import { CharactersProps } from 'utils/interfaces/characters'
 
-interface CharacterCardProps {
+interface CardCharacterProps {
   character: CharactersProps
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({
+const CardCharacter: React.FC<CardCharacterProps> = ({
   character,
-}: CharacterCardProps) => {
+}: CardCharacterProps) => {
   return (
     <div
       key={character.id}
@@ -26,4 +26,4 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   )
 }
 
-export default CharacterCard
+export default CardCharacter

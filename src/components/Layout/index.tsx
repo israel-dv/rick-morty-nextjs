@@ -6,7 +6,7 @@ const SITE_TITLE = 'Rick & Morty NextJS IM'
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div className="w-screen h-screen bg-blue-1000">
+    <div className="flex flex-col w-screen h-screen bg-blue-1000 overflow-auto">
       <Head>
         <link rel="icon" href="/rm.ico" />
         <meta name="description" content="Rick and Morty NextJS - Vest" />
@@ -15,7 +15,7 @@ const Layout: React.FC = ({ children }) => {
         <title>{SITE_TITLE}</title>
       </Head>
       <Header />
-      <div className="w-full h-full pt-28 pb-8 fh:px-48 iphone:px-6 overflow-auto">
+      <div className="w-full h-full pt-28 pb-8 fh:px-48 iphone:px-6">
         {children}
       </div>
     </div>

@@ -4,28 +4,28 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import Layout from 'components/Layout'
-import { episodeById } from 'api/episodes/episodeById'
-import { EpisodeProps } from 'utils/interfaces/episodes'
 import CharacterCard from 'components/CardCharacter'
 import CardShimmers from 'components/CardShimmer'
+import { locationByID } from 'api/locations/locationById'
+import { LocationsProps } from 'utils/interfaces/locations'
 
-const EpisodeId = () => {
+const LocationId = () => {
   const {
     query: { id },
   } = useRouter()
 
-  const [episode, setEpisode] = useState(
-    (): EpisodeProps => ({
-      characters: [],
+  const [location, setLocation] = useState(
+    (): LocationsProps => ({
+      residents: [],
     }),
   )
 
-  const { data, loading } = useQuery(episodeById(id))
+  const { data, loading } = useQuery(locationByID(id))
 
   useEffect(() => {
     if (data && !loading) {
-      const { episode } = !!data && data
-      setEpisode(episode)
+      const { location } = !!data && data
+      setLocation(location)
     }
   }, [data, loading])
 
@@ -51,10 +51,10 @@ const EpisodeId = () => {
           <>
             <div className="flex w-full flex-col">
               <span className="text-3xl font-bold text-white">
-                {episode.name}
+                {location.name}
               </span>
-              <span className="text-lg text-gray-300">{`Episode: ${episode.episode}`}</span>
-              <span className="text-lg text-gray-300">{`Air date: ${episode.air_date}`}</span>
+              <span className="text-lg text-gray-300">{`Dimension: ${location.dimension}`}</span>
+              <span className="text-lg text-gray-300">{`Type: ${location.type}`}</span>
             </div>
             <hr className="my-3" />
             <Link href={`/characters`}>
@@ -65,10 +65,10 @@ const EpisodeId = () => {
               </a>
             </Link>
             <div className="grid fh:grid-cols-4 fh:gap-4 w-full h-full mt-4 2xl:grid-cols-2 2xl:gap-2">
-              {episode.characters?.map((character) => (
-                <Link href={`/characters/${character.id}`} key={character.id}>
+              {location.residents?.map((resident) => (
+                <Link href={`/characters/${resident.id}`} key={resident.id}>
                   <a>
-                    <CharacterCard character={character} />
+                    <CharacterCard character={resident} />
                   </a>
                 </Link>
               ))}
@@ -80,4 +80,4 @@ const EpisodeId = () => {
   )
 }
 
-export default EpisodeId
+export default LocationId

@@ -7,10 +7,10 @@ import Link from 'next/link'
 import ROUTES from 'utils/constants/routes'
 import Layout from 'components/Layout'
 import CardEpisode from 'components/CardEpisode'
+import CardShimmers from 'components/CardShimmer'
 import { characterById } from 'api/characters/characterById'
 import { useEffect, useState } from 'react'
 import { CharactersProps } from 'utils/interfaces/characters'
-import CardShimmers from 'components/CardShimmers'
 
 const Character: NextPage = () => {
   const {
