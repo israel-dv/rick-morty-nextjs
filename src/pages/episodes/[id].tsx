@@ -42,7 +42,7 @@ const EpisodeId = () => {
             <hr className="my-3" />
             <div className="h-6 w-40 rounded-lg bg-gray-300"></div>
             <div className="grid fh:grid-cols-4 fh:gap-4 w-full min-h-24 mt-4 2xl:grid-cols-2 2xl:gap-2">
-              {Array.from({ length: 4 }, (_, index) => (
+              {Array.from({ length: 20 }, (_, index) => (
                 <CardShimmers type="character" key={index} />
               ))}
             </div>
