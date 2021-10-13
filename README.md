@@ -45,7 +45,7 @@ You and see the project on: [localhost:3000](http://localhost:3000/)
 - ❌ Finally, create a view called Error, this view only shows an error state, I decided to put it as a view and not as a component, since its function is only to show something static, I don't know if it was the best alternative but I base it on that to decide what a view is. (View! == Page)
   ![Captura de Pantalla 2021-10-13 a la(s) 14 31 37](https://user-images.githubusercontent.com/18078522/137200682-3f0f392c-eab5-42f5-81bd-8566379dde24.png)
 
-# Reults!
+# Results!
 
 ![Captura de Pantalla 2021-10-13 a la(s) 14 32 33](https://user-images.githubusercontent.com/18078522/137200860-58906d48-0929-45fd-9d12-836762dc66e0.png)
 
