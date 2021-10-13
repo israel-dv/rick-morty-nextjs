@@ -10,6 +10,7 @@ import Paginator from 'components/Paginator'
 import CardEpisode from 'components/CardEpisode'
 import CardShimmers from 'components/CardShimmer'
 import Searcher from 'components/Searcher'
+import Error from 'views/Error'
 import useCounter from 'utils/hooks/useCounter'
 import useWidth from 'utils/hooks/useWidth'
 import { episodesQuery } from 'api/episodes/espisodesQuery'
@@ -51,7 +52,7 @@ const Episodes: NextPage = () => {
     initialCounter: INIT_PAGE,
   })
 
-  const { data, loading } = useQuery(
+  const { data, loading, error } = useQuery(
     episodesQuery(page, JSON.stringify(search)),
   )
 
@@ -97,19 +98,23 @@ const Episodes: NextPage = () => {
             )}
           </div>
         </div>
-        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
-          {loading
-            ? Array.from({ length: 20 }, (_, index) => (
-                <CardShimmers key={index} type="episode" />
-              ))
-            : episodes.results.map((episode) => (
-                <Link href={`/episodes/${episode.id}`} key={episode.id}>
-                  <a>
-                    <CardEpisode episode={episode} />
-                  </a>
-                </Link>
-              ))}
-        </div>
+        {error ? (
+          <Error text={search} />
+        ) : (
+          <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
+            {loading
+              ? Array.from({ length: 20 }, (_, index) => (
+                  <CardShimmers key={index} type="episode" />
+                ))
+              : episodes.results.map((episode) => (
+                  <Link href={`/episodes/${episode.id}`} key={episode.id}>
+                    <a>
+                      <CardEpisode episode={episode} />
+                    </a>
+                  </Link>
+                ))}
+          </div>
+        )}
       </div>
     </Layout>
   )
