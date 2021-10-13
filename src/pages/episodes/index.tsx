@@ -68,7 +68,7 @@ const Episodes: NextPage = () => {
     if (Boolean(search)) {
       reset()
     }
-  }, [search, reset])
+  }, [search])
 
   return (
     <Layout>
@@ -79,15 +79,12 @@ const Episodes: NextPage = () => {
             <span className="text-3xl text-white font-comfortaa">
               {ROUTES.episodes.label}
             </span>
-            <span className="text-sm text-white font-comfortaa">
+            <span className="text-xl sm:text-3xl text-white font-comfortaa">
               {loading ? 'Loading' : `Page ${page} of ${episodes?.info?.pages}`}
             </span>
           </div>
           <div className="flex h-8 sm:h-10">
-            <Searcher
-              placeholder="Search Character"
-              onHandleClick={setSearch}
-            />
+            <Searcher placeholder="Search Episode" onHandleClick={setSearch} />
             {width >= 480 && (
               <Paginator
                 lastPage={episodes.info.pages}
@@ -98,6 +95,16 @@ const Episodes: NextPage = () => {
             )}
           </div>
         </div>
+        {width <= 480 && (
+          <div className="w-full flex justify-end">
+            <Paginator
+              lastPage={episodes.info.pages}
+              currentPage={page}
+              onClickBack={decrement}
+              onClickNext={increment}
+            />
+          </div>
+        )}
         {error ? (
           <Error text={search} />
         ) : (

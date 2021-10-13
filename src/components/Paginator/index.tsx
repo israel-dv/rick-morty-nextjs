@@ -19,7 +19,7 @@ const Paginator: React.FC<PaginatorProps> = ({
   useEffect(() => {}, [lastPage, currentPage])
 
   return (
-    <div className="flex w-32 h-10">
+    <div className="flex w-32 h-10 ml-2">
       <button
         className={`bg-blue-800 flex w-full h-full border rounded-md items-center justify-center border-blue-400 cursor-pointer fill-current text-white ${
           currentPage <= 1 && 'opacity-50 cursor-default'
