@@ -26,7 +26,7 @@ const Searcher: React.FC<SearcherProps> = ({
   return (
     <div className="mx-2 h-full flex border border-blue-900 rounded-md items-center overflow-hidden px-2">
       <input
-        className="bg-blue-1000 h-full text-white text-xs outline-none rounded-none"
+        className="bg-blue-1000 h-full text-white text-xs outline-none rounded-none font-varela"
         onKeyPress={handleKeyPress}
         placeholder={placeholder}
         onChange={handleChange}

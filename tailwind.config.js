@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         balsamiq: ['Balsamiq Sans', ...defaultTheme.fontFamily.sans],
         comfortaa: ['Comfortaa', ...defaultTheme.fontFamily.sans],
+        varela: ['Varela Round', ...defaultTheme.fontFamily.sans],
       },
       screens: {
         iphone: '375px',

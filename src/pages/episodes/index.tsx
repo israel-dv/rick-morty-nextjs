@@ -75,8 +75,10 @@ const Episodes: NextPage = () => {
       <div className="flex flex-col w-full h-full">
         <div className="flex w-full justify-between items-center">
           <div className="flex flex-col">
-            <span className="text-3xl text-white">{ROUTES.episodes.label}</span>
-            <span className="text-sm text-white">
+            <span className="text-3xl text-white font-comfortaa">
+              {ROUTES.episodes.label}
+            </span>
+            <span className="text-sm text-white font-comfortaa">
               {loading ? 'Loading' : `Page ${page} of ${episodes?.info?.pages}`}
             </span>
           </div>

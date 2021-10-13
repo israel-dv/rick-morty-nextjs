@@ -30,7 +30,7 @@ const Paginator: React.FC<PaginatorProps> = ({
         <NavigateBefore />
       </button>
       <div className="w-3" />
-      <div className="flex w-full h-full border rounded-md items-center justify-center border-blue-400 text-xl font-bold text-white">
+      <div className="flex w-full h-full border rounded-md items-center justify-center border-blue-400 text-xl font-bold text-white font-balsamiq">
         {currentPage}
       </div>
       <div className="w-3" />

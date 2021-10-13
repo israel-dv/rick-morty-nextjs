@@ -4,14 +4,14 @@ import Layout from 'components/Layout'
 import MainCard from 'components/MainCard'
 import ROUTES from 'utils/constants/routes'
 
-const TITLE = 'Rick and Morty NextJS'
+const TITLE = 'Rick and Morty'
 
 const Home: NextPage = () => {
   return (
     <Layout>
       <div className="flex flex-col w-full h-full items-center xl:px-52 md:px-12">
         <div className="flex flex-col w-full items-center justify-items-center py-3">
-          <span className="text-white fh:text-6xl iphone:text-3xl font-bold text-shadow-left-orange italic">
+          <span className="text-white fh:text-6xl iphone:text-3xl font-bold text-shadow-left-orange italic font-balsamiq">
             {TITLE}
           </span>
         </div>
