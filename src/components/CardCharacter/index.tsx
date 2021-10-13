@@ -19,8 +19,10 @@ const CardCharacter: React.FC<CardCharacterProps> = ({
         className="rounded-full w-24 h-24 bg-gray-900 border-2 border-white cursor-pointer"
       />
       <div className="flex flex-col ml-2">
-        <p className="text-white">{character.name}</p>
-        <span className="text-gray-300 text-xs">{character.origin?.name}</span>
+        <span className="text-white font-varela">{character.name}</span>
+        <span className="text-gray-300 text-xs font-varela">
+          {character.origin?.name}
+        </span>
       </div>
     </div>
   )

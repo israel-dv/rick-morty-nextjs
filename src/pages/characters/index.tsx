@@ -1,19 +1,20 @@
 import type { NextPage } from 'next'
 import { useState, useEffect, useContext } from 'react'
-import { gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import Link from 'next/link'
 
+import ROUTES from 'utils/constants/routes'
 import HeadTitle from 'components/HeadTitle'
 import Layout from 'components/Layout'
-import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
-import useCounter from 'utils/hooks/useCounter'
 import CardCharacter from 'components/CardCharacter'
 import CardShimmers from 'components/CardShimmer'
+import Error from 'views/Error'
+import useCounter from 'utils/hooks/useCounter'
+import useWidth from 'utils/hooks/useWidth'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
 import Searcher from 'components/Searcher'
-import useWidth from 'utils/hooks/useWidth'
 
 interface Info {
   count: number
@@ -51,7 +52,7 @@ const Characters: NextPage = () => {
     initialCounter: INIT_PAGE,
   })
 
-  const { data, loading } = useQuery(
+  const { data, loading, error } = useQuery(
     charactersQuery({ page, text: JSON.stringify(search) }),
   )
 
@@ -74,10 +75,10 @@ const Characters: NextPage = () => {
       <div className="flex flex-col w-full h-full">
         <div className="flex w-full justify-between items-center">
           <div className="flex flex-col">
-            <span className="text-3xl text-white font-bold">
+            <span className="text-3xl text-white font-bold font-comfortaa">
               {ROUTES.characters.label}
             </span>
-            <span className="text-sm text-white">
+            <span className="text-sm text-white font-comfortaa">
               {loading
                 ? 'Loading'
                 : `Page ${page} of ${characters?.info?.pages}`}
@@ -105,19 +106,23 @@ const Characters: NextPage = () => {
             />
           </div>
         )}
-        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
-          {loading
-            ? Array.from({ length: 20 }, (_, index) => (
-                <CardShimmers key={index} type="character" />
-              ))
-            : characters.results.map((character) => (
-                <Link href={`/characters/${character.id}`} key={character.id}>
-                  <a>
-                    <CardCharacter character={character} />
-                  </a>
-                </Link>
-              ))}
-        </div>
+        {error ? (
+          <Error text={search} />
+        ) : (
+          <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
+            {loading
+              ? Array.from({ length: 20 }, (_, index) => (
+                  <CardShimmers key={index} type="character" />
+                ))
+              : characters.results.map((character) => (
+                  <Link href={`/characters/${character.id}`} key={character.id}>
+                    <a>
+                      <CardCharacter character={character} />
+                    </a>
+                  </Link>
+                ))}
+          </div>
+        )}
       </div>
     </Layout>
   )

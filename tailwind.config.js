@@ -1,11 +1,21 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
         'blue-1000': '#212332',
         'blue-950': '#2A2D3E',
+      },
+      fontFamily: {
+        balsamiq: ['Balsamiq Sans', ...defaultTheme.fontFamily.sans],
+        comfortaa: ['Comfortaa', ...defaultTheme.fontFamily.sans],
+        varela: ['Varela Round', ...defaultTheme.fontFamily.sans],
       },
       screens: {
         iphone: '375px',
