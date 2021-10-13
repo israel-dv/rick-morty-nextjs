@@ -84,10 +84,7 @@ const Characters: NextPage = () => {
             </span>
           </div>
           <div className="flex h-8 sm:h-10">
-            <Searcher
-              placeholder="Search Character"
-              onHandleClick={setSearch}
-            />
+            <Searcher placeholder="Search Episode" onHandleClick={setSearch} />
             {width >= 480 && (
               <Paginator
                 lastPage={characters.info.pages}

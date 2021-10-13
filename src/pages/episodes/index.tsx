@@ -3,14 +3,15 @@ import { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import Link from 'next/link'
 
+import ROUTES from 'utils/constants/routes'
 import HeadTitle from 'components/HeadTitle'
 import Layout from 'components/Layout'
-import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
-import useCounter from 'utils/hooks/useCounter'
-import useSessionStorage from 'utils/hooks/useSessionStorage'
 import CardEpisode from 'components/CardEpisode'
 import CardShimmers from 'components/CardShimmer'
+import Searcher from 'components/Searcher'
+import useCounter from 'utils/hooks/useCounter'
+import useWidth from 'utils/hooks/useWidth'
 import { episodesQuery } from 'api/episodes/espisodesQuery'
 import { EpisodeProps } from 'utils/interfaces/episodes'
 
@@ -32,23 +33,27 @@ const INIT_INFO = {
 const INIT_PAGE = 1
 
 const Episodes: NextPage = () => {
+  const width = useWidth()
   const [episodes, setEpisodes] = useState(
     (): EpisodePageProps => ({
       results: [],
       info: INIT_INFO,
     }),
   )
+  const [search, setSearch] = useState('')
 
-  const { value: page, setLocalStorage } = useSessionStorage({
-    key: 'pageEpisode',
-    initialValue: INIT_PAGE,
+  const {
+    counter: page,
+    increment,
+    decrement,
+    reset,
+  } = useCounter({
+    initialCounter: INIT_PAGE,
   })
 
-  const { counter, increment, decrement } = useCounter({
-    initialCounter: page,
-  })
-
-  const { data, loading } = useQuery(episodesQuery(page))
+  const { data, loading } = useQuery(
+    episodesQuery(page, JSON.stringify(search)),
+  )
 
   useEffect(() => {
     if (data && !loading) {
@@ -58,8 +63,11 @@ const Episodes: NextPage = () => {
   }, [data, loading])
 
   useEffect(() => {
-    setLocalStorage(counter)
-  }, [counter])
+    // Testint new class of EMS
+    if (Boolean(search)) {
+      reset()
+    }
+  }, [search])
 
   return (
     <Layout>
@@ -72,12 +80,20 @@ const Episodes: NextPage = () => {
               {loading ? 'Loading' : `Page ${page} of ${episodes?.info?.pages}`}
             </span>
           </div>
-          <Paginator
-            lastPage={episodes.info.pages}
-            currentPage={page}
-            onClickBack={decrement}
-            onClickNext={increment}
-          />
+          <div className="flex h-8 sm:h-10">
+            <Searcher
+              placeholder="Search Character"
+              onHandleClick={setSearch}
+            />
+            {width >= 480 && (
+              <Paginator
+                lastPage={episodes.info.pages}
+                currentPage={page}
+                onClickBack={decrement}
+                onClickNext={increment}
+              />
+            )}
+          </div>
         </div>
         <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
           {loading

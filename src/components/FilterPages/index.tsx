@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 
+import List from 'assets/icons/list.svg'
 interface FilterPagesProps {
   options: Array<string>
   title: string
@@ -30,14 +31,15 @@ const FilterPages: React.FC<FilterPagesProps> = ({
 
   return (
     <div className="relative inline-block" ref={dropDownRef}>
-      <button
-        className={`flex h-8 w-24 justify-center px-4 py-2 text-sm text-gray-400 items-center border rounded-md bg-blue-1000 border-blue-900 ${
+      <div
+        className={`flex justify-between h-8 w-32 px-4 py-2 text-sm text-gray-400 items-center border rounded-md bg-blue-1000 border-blue-900 fill-current ${
           isActive && 'border-indigo-50 text-indigo-50'
         }`}
         onClick={() => setActive(!isActive)}
       >
-        {title}
-      </button>
+        <button onClick={() => setActive(!isActive)}>{title}</button>
+        <List />
+      </div>
       <div
         className={`absolute bg-gray-200 origin-top mt-1 w-full rounded-lg border-1 shadow-2xl px-3 py-4 ${
           isActive ? 'block' : 'hidden'

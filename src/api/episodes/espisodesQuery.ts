@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
-export const episodesQuery = (id: number) => gql`
+export const episodesQuery = (id: number, name: string) => gql`
   query Episodes {
-    episodes(page: ${id}) {
+    episodes(page: ${id}, filter: {name : ${name}}) {
       info {
         count
         pages
