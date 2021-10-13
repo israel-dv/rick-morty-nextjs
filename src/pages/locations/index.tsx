@@ -83,7 +83,7 @@ const Locations: NextPage = () => {
             onClickNext={increment}
           />
         </div>
-        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
+        <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full min-h-1/2 max-h-full mt-4">
           {loading
             ? Array.from({ length: 20 }, (_, index) => (
                 <CardShimmers key={index} type="episode" />

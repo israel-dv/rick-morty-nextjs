@@ -17,7 +17,13 @@ const MainCard: React.FC<MainCardProps> = ({
   return (
     <Link href={path}>
       <a className="relative inline-block text-center w-full h-1/3 rounded-xl overflow-hidden opacity-60 hover:opacity-95 cursor-pointer shadow-2xl sm:my-2">
-        <Image src={src} layout="fill" alt={alt} />
+        <Image
+          src={src}
+          width={1920}
+          height={1090}
+          alt={alt}
+          className="img-card"
+        />
         <div className="absolute border-2 rounded-md px-7 py-2 top-1/2 left-1/2 text-3xl transform -translate-x-1/2 -translate-y-1/2 text-white bg-gray-900 opacity-90 font-comfortaa">
           {title}
         </div>
