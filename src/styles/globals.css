@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Comfortaa&family=Festive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Festive&display=swap');
+
 html,
 body {
   padding: 0;
