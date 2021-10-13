@@ -17,6 +17,16 @@ module.exports = {
         comfortaa: ['Comfortaa', ...defaultTheme.fontFamily.sans],
         varela: ['Varela Round', ...defaultTheme.fontFamily.sans],
       },
+      maxHeight: {
+        0: '0',
+        '1/4': '25%',
+        '1/2': '50%',
+      },
+      minHeight: {
+        0: '0',
+        '1/4': '25%',
+        '1/2': '50%',
+      },
       screens: {
         iphone: '375px',
         fh: '1080px',

@@ -10,11 +10,11 @@ import Paginator from 'components/Paginator'
 import CardCharacter from 'components/CardCharacter'
 import CardShimmers from 'components/CardShimmer'
 import Error from 'views/Error'
+import Searcher from 'components/Searcher'
 import useCounter from 'utils/hooks/useCounter'
 import useWidth from 'utils/hooks/useWidth'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
-import Searcher from 'components/Searcher'
 
 interface Info {
   count: number
@@ -41,7 +41,7 @@ const Characters: NextPage = () => {
       info: INIT_INFO,
     }),
   )
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState<string>('')
 
   const {
     counter: page,
@@ -86,7 +86,7 @@ const Characters: NextPage = () => {
             </span>
           </div>
           <div className="flex h-8 sm:h-10">
-            <Searcher placeholder="Search Episode" onHandleClick={setSearch} />
+            <Searcher placeholder="Search Characer" onHandleClick={setSearch} />
             {width >= 480 && (
               <Paginator
                 lastPage={characters.info.pages}
@@ -110,14 +110,14 @@ const Characters: NextPage = () => {
         {error ? (
           <Error text={search} />
         ) : (
-          <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
+          <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full min-h-1/2 max-h-full mt-4">
             {loading
               ? Array.from({ length: 20 }, (_, index) => (
                   <CardShimmers key={index} type="character" />
                 ))
               : characters.results.map((character) => (
                   <Link href={`/characters/${character.id}`} key={character.id}>
-                    <a>
+                    <a className="">
                       <CardCharacter character={character} />
                     </a>
                   </Link>
