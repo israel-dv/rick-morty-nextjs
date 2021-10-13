@@ -66,7 +66,7 @@ const Characters: NextPage = () => {
     if (Boolean(search)) {
       reset()
     }
-  }, [search])
+  }, [search, reset])
 
   return (
     <Layout>
