@@ -41,14 +41,14 @@ const FilterPages: React.FC<FilterPagesProps> = ({
         <List />
       </div>
       <div
-        className={`absolute bg-gray-200 origin-top mt-1 w-full rounded-lg border-1 shadow-2xl px-3 py-4 ${
+        className={`absolute bg-gray-700 origin-top mt-1 w-full rounded-lg border-1 shadow-2xl py-4 ${
           isActive ? 'block' : 'hidden'
         }`}
       >
         {options.map((title) => (
           <Link key={title} href={`/${title.toLocaleLowerCase()}`}>
             <a
-              className="flex items-center justify-center w-full h-8 text-xs font-comfortaa"
+              className="flex items-center justify-center w-full h-8 text-xs font-comfortaa text-white hover:bg-gray-800 px-3"
               onClick={() => setTitle(title)}
             >
               {title}
