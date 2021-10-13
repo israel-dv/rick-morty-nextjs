@@ -76,7 +76,7 @@ const Characters: NextPage = () => {
       <div className="flex flex-col w-full h-full">
         <div className="flex w-full justify-between items-center">
           <div className="flex flex-col">
-            <span className="text-3xl text-white font-bold font-comfortaa">
+            <span className="text-xl sm:text-3xl text-white font-bold font-comfortaa">
               {ROUTES.characters.label}
             </span>
             <span className="text-sm text-white font-comfortaa">
