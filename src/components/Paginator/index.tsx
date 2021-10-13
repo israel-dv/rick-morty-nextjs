@@ -19,21 +19,25 @@ const Paginator: React.FC<PaginatorProps> = ({
   useEffect(() => {}, [lastPage, currentPage])
 
   return (
-    <div className="flex">
+    <div className="flex w-32 h-10">
       <button
-        className="bg-blue-800 flex w-10 h-10 border rounded-md items-center justify-center border-blue-400 cursor-pointer fill-current text-white"
+        className={`bg-blue-800 flex w-full h-full border rounded-md items-center justify-center border-blue-400 cursor-pointer fill-current text-white ${
+          currentPage <= 1 && 'opacity-50 cursor-default'
+        }`}
         onClick={onClickBack}
         disabled={currentPage <= 1}
       >
         <NavigateBefore />
       </button>
-      <div className="w-1" />
-      <div className="flex w-10 h-10 border rounded-md items-center justify-center border-blue-400 text-xl font-bold text-white">
+      <div className="w-3" />
+      <div className="flex w-full h-full border rounded-md items-center justify-center border-blue-400 text-xl font-bold text-white">
         {currentPage}
       </div>
-      <div className="w-1" />
+      <div className="w-3" />
       <button
-        className="bg-blue-800 flex w-10 h-10 border rounded-md items-center justify-center border-blue-400 cursor-pointer fill-current text-white"
+        className={`bg-blue-800 flex w-full h-full border rounded-md items-center justify-center border-blue-400 cursor-pointer fill-current text-white ${
+          currentPage === lastPage && 'opacity-50 cursor-default'
+        }`}
         onClick={onClickNext}
         disabled={currentPage === lastPage}
       >

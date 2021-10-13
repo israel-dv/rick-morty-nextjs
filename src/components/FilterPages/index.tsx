@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 interface FilterPagesProps {
   options: Array<string>
-  setTitle(title: any): void
   title: string
+  setTitle(title: any): void
 }
 
 const FilterPages: React.FC<FilterPagesProps> = ({
@@ -15,7 +15,6 @@ const FilterPages: React.FC<FilterPagesProps> = ({
   const dropDownRef: any = useRef(undefined)
 
   const [isActive, setActive] = useState(() => false)
-  const [selected, setSelected] = useState()
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick)

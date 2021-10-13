@@ -1,8 +1,16 @@
 import { gql } from '@apollo/client'
 
-export const charactersQuery = (page: number) => gql`
+interface CharactersQueryProps {
+  page?: number
+  text?: string
+}
+
+export const charactersQuery = ({
+  page,
+  text = '',
+}: CharactersQueryProps) => gql`
   query characterstes {
-    characters (page: ${page}){
+    characters (page: ${page}, filter: { name: ${text} }){
       info {
         count
         pages

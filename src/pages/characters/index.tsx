@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import { useState, useEffect } from 'react'
-import { useQuery } from '@apollo/client'
+import { useState, useEffect, useContext } from 'react'
+import { gql, useQuery } from '@apollo/client'
 import Link from 'next/link'
 
 import HeadTitle from 'components/HeadTitle'
@@ -8,11 +8,12 @@ import Layout from 'components/Layout'
 import ROUTES from 'utils/constants/routes'
 import Paginator from 'components/Paginator'
 import useCounter from 'utils/hooks/useCounter'
-import useSessionStorage from 'utils/hooks/useSessionStorage'
 import CardCharacter from 'components/CardCharacter'
 import CardShimmers from 'components/CardShimmer'
 import { charactersQuery } from 'api/characters/charctersQuery'
 import { CharactersProps } from 'utils/interfaces/characters'
+import Searcher from 'components/Searcher'
+import useWidth from 'utils/hooks/useWidth'
 
 interface Info {
   count: number
@@ -32,23 +33,27 @@ const INIT_INFO = {
 const INIT_PAGE = 1
 
 const Characters: NextPage = () => {
+  const width = useWidth()
   const [characters, setCharacters] = useState(
     (): CharactersPageProps => ({
       results: [],
       info: INIT_INFO,
     }),
   )
+  const [search, setSearch] = useState('')
 
-  const { value: page, setLocalStorage } = useSessionStorage({
-    key: 'page',
-    initialValue: INIT_PAGE,
+  const {
+    counter: page,
+    increment,
+    decrement,
+    reset,
+  } = useCounter({
+    initialCounter: INIT_PAGE,
   })
 
-  const { counter, increment, decrement } = useCounter({
-    initialCounter: page,
-  })
-
-  const { data, loading } = useQuery(charactersQuery(page))
+  const { data, loading } = useQuery(
+    charactersQuery({ page, text: JSON.stringify(search) }),
+  )
 
   useEffect(() => {
     if (data && !loading) {
@@ -58,8 +63,10 @@ const Characters: NextPage = () => {
   }, [data, loading])
 
   useEffect(() => {
-    setLocalStorage(counter)
-  }, [counter])
+    if (Boolean(search)) {
+      reset()
+    }
+  }, [search])
 
   return (
     <Layout>
@@ -76,13 +83,31 @@ const Characters: NextPage = () => {
                 : `Page ${page} of ${characters?.info?.pages}`}
             </span>
           </div>
-          <Paginator
-            lastPage={characters.info.pages}
-            currentPage={page}
-            onClickBack={decrement}
-            onClickNext={increment}
-          />
+          <div className="flex h-8 sm:h-10">
+            <Searcher
+              placeholder="Search Character"
+              onHandleClick={setSearch}
+            />
+            {width >= 480 && (
+              <Paginator
+                lastPage={characters.info.pages}
+                currentPage={page}
+                onClickBack={decrement}
+                onClickNext={increment}
+              />
+            )}
+          </div>
         </div>
+        {width <= 480 && (
+          <div className="w-full flex justify-end">
+            <Paginator
+              lastPage={characters.info.pages}
+              currentPage={page}
+              onClickBack={decrement}
+              onClickNext={increment}
+            />
+          </div>
+        )}
         <div className="grid md:grid-cols-2 md:gap-2 xl:grid-cols-3 xl:gap-3 hd:grid-cols-4 hd:gap-4 w-full h-full mt-4">
           {loading
             ? Array.from({ length: 20 }, (_, index) => (

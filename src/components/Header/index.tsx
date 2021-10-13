@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   const { filterPage, setFilterPage } = useContext(FilterContext)
 
   return (
-    <div className="absolute bg-blue-950 h-20 flex  items-center justify-between fh:px-10 shadow-md top-0 w-screen iphone:px-3">
+    <div className="absolute bg-blue-950 h-20 flex  items-center justify-between fh:px-10 shadow-md top-0 w-screen iphone:px-3 z-10">
       <div className="flex w-full items-center justify-between">
         <Link href="/">
           <a>
@@ -35,7 +35,6 @@ const Header: React.FC = () => {
             title={filterPage}
             setTitle={setFilterPage}
           />
-          <input className="ml-2 bg-blue-1000 opacity-75 h-8 focus:outline-none px-3 rounded-md text-white text-xs focus:border-indigo-50" />
         </div>
       </div>
     </div>

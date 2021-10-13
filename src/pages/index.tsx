@@ -21,7 +21,6 @@ const Home: NextPage = () => {
         </div>
         <br />
         <MainCard
-          size="big"
           src="/images/characters.png"
           alt={ROUTES.characters.name}
           title={ROUTES.characters.label}
@@ -30,7 +29,6 @@ const Home: NextPage = () => {
         <br />
         <MainCard
           src="/images/location1.png"
-          size="large"
           alt={ROUTES.locations.name}
           title={ROUTES.locations.label}
           path={ROUTES.locations.path}
@@ -38,7 +36,6 @@ const Home: NextPage = () => {
         <br />
         <MainCard
           src="/images/episode.png"
-          size="large"
           alt={ROUTES.episodes.name}
           title={ROUTES.episodes.label}
           path={ROUTES.episodes.path}
