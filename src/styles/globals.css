@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.text-shadow {
+  text-shadow: 2px 2px green;
+}
+
+.text-shadow-left-green {
+  text-shadow: -2px 2px green;
+}
+
+.text-shadow-left-orange {
+  text-shadow: -2px 2px rgb(228, 110, 0);
+}
