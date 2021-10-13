@@ -68,7 +68,7 @@ const Episodes: NextPage = () => {
     if (Boolean(search)) {
       reset()
     }
-  }, [search, reset])
+  }, [search])
 
   return (
     <Layout>
