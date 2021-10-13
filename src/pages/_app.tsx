@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import { useState } from 'react'
+import 'styles/globals.css'
 import 'tailwindcss/tailwind.css'
 
 import { client } from 'api/client'

@@ -67,7 +67,7 @@ const Character: NextPage = () => {
                 className="h-40 w-40 rounded-full border-2 border-white bg-gray-600 shadow-2xl outline-none"
               />
               <div className="flex flex-col iphone:pt-3 fh:pl-4 fh:items-start iphone:items-center w-full iphone:text-center">
-                <span className="text-4xl font-bold text-white">
+                <span className="text-4xl font-bold text-white italic text-shadow-left-orange">
                   {character.name}
                 </span>
                 <span className="text-base text-gray-300">{`Gender: ${character.gender}`}</span>
