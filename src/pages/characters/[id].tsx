@@ -18,7 +18,9 @@ const Character: NextPage = () => {
   } = useRouter()
 
   const [character, setCharacter] = useState(
-    (): CharactersProps => ({ image: '/images/loading.jpeg' }),
+    (): CharactersProps => ({
+      image: '/images/loading.jpeg',
+    }),
   )
 
   const { data, loading } = useQuery(characterById(id))
@@ -29,6 +31,17 @@ const Character: NextPage = () => {
       setCharacter(character)
     }
   }, [data, loading])
+
+  const STATUS = (status: string | undefined): string => {
+    switch (status) {
+      case 'Dead':
+        return '💀'
+      case 'Alive':
+        return '😎'
+      default:
+        return '🤔'
+    }
+  }
 
   return (
     <Layout>
@@ -67,14 +80,16 @@ const Character: NextPage = () => {
                 className="h-40 w-40 rounded-full border-2 border-white bg-gray-600 shadow-2xl outline-none"
               />
               <div className="flex flex-col iphone:pt-3 fh:pl-4 fh:items-start iphone:items-center w-full iphone:text-center">
-                <span className="text-4xl font-bold text-white italic text-shadow-left-orange">
+                <span className="text-4xl font-bold text-white italic text-shadow-left-orange font-balsamiq">
                   {character.name}
                 </span>
-                <span className="text-base text-gray-300">{`Gender: ${character.gender}`}</span>
-                <span className="text-base text-gray-300">{`Origin: ${character.origin?.name}`}</span>
+                <span className="text-base text-gray-300 font-varela">{`Gender: ${character.gender}`}</span>
+                <span className="text-base text-gray-300 font-varela">{`Origin: ${character.origin?.name}`}</span>
                 <div className="flex items-center">
                   <span className="text-base text-gray-300">{`Status: ${character.status}`}</span>
-                  <div className="ml-3 w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className={`ml-3 rounded-full text-base`}>{`${STATUS(
+                    character.status,
+                  )}`}</div>
                 </div>
               </div>
             </div>
