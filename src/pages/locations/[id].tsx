@@ -50,11 +50,11 @@ const LocationId = () => {
         ) : (
           <>
             <div className="flex w-full flex-col">
-              <span className="text-3xl font-bold text-white">
+              <span className="text-3xl font-bold text-white font-balsamiq text-shadow-left-orange">
                 {location.name}
               </span>
-              <span className="text-lg text-gray-300">{`Dimension: ${location.dimension}`}</span>
-              <span className="text-lg text-gray-300">{`Type: ${location.type}`}</span>
+              <span className="text-lg text-gray-300 font-varela">{`Dimension: ${location.dimension}`}</span>
+              <span className="text-lg text-gray-300 font-varela">{`Type: ${location.type}`}</span>
             </div>
             <hr className="my-3" />
             <Link href={`/characters`}>

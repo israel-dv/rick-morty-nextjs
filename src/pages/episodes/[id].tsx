@@ -50,11 +50,11 @@ const EpisodeId = () => {
         ) : (
           <>
             <div className="flex w-full flex-col">
-              <span className="text-3xl font-bold text-white">
+              <span className="text-3xl font-bold text-white font-balsamiq text-shadow-left-orange">
                 {episode.name}
               </span>
-              <span className="text-lg text-gray-300">{`Episode: ${episode.episode}`}</span>
-              <span className="text-lg text-gray-300">{`Air date: ${episode.air_date}`}</span>
+              <span className="text-md text-gray-300 font-varela">{`Episode: ${episode.episode}`}</span>
+              <span className="text-md text-gray-300 font-varela">{`Air date: ${episode.air_date}`}</span>
             </div>
             <hr className="my-3" />
             <Link href={`/characters`}>

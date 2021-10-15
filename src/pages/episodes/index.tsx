@@ -79,7 +79,7 @@ const Episodes: NextPage = () => {
             <span className="text-xl sm:text-3xl text-white font-comfortaa">
               {ROUTES.episodes.label}
             </span>
-            <span className="text-xl sm:text-3xl text-white font-comfortaa">
+            <span className="text-sm text-white font-comfortaa">
               {loading ? 'Loading' : `Page ${page} of ${episodes?.info?.pages}`}
             </span>
           </div>
