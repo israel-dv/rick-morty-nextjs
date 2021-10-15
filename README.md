@@ -4,7 +4,7 @@ Project of Rick and Morty build with [NextJS](https://nextjs.org/) using the pub
 
 # Deployment 🚀
 
-This project was deploy on [Vercel](https://vercel.com), you can check it on this link:  
+This project was deployed on [Vercel](https://vercel.com), you can check it on this link:  
 https://rick-morty-vest.vercel.app/
 
 ## Stack 📚
